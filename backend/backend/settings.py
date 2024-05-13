@@ -46,8 +46,7 @@ DJANGO_APPS = [
 ]
 
 PROJECT_APPS = [
-    'api.apps.ApiConfig',
-    'users.apps.UsersConfig'
+    'api.apps.ApiConfig'
 ]
 
 THIRD_PARTY_APPS = [
@@ -58,6 +57,7 @@ THIRD_PARTY_APPS = [
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + \
     THIRD_PARTY_APPS
+INSTALLED_APPS.insert(0, 'jazzmin')
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -146,7 +146,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'api.User'
 
 
 REST_FRAMEWORK = {
