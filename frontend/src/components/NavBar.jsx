@@ -22,10 +22,10 @@ const Navbar = () => {
               <Link to="/" className="text-red-100 hover:text-red-200 px-3 py-2 rounded-md text-md font-medium">
                 Home
               </Link>
-              <Link to="/" className="text-red-100 hover:text-red-200 px-3 py-2 rounded-md text-md font-medium">
+              <Link to="/accounts/login/" className="text-red-100 hover:text-red-200 px-3 py-2 rounded-md text-md font-medium">
                 Login
               </Link>
-              <Link to="/" className="text-red-100 hover:text-red-200 px-3 py-2 rounded-md text-md font-medium">
+              <Link to="/accounts/register/" className="text-red-100 hover:text-red-200 px-3 py-2 rounded-md text-md font-medium">
                 Register
               </Link>
             </div>
