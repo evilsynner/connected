@@ -5,11 +5,12 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import IndexPage from "./components/IndexPage";
 
 const router = createBrowserRouter(
   createRoutesFromChildren(
     <Route path="/">
-      <Route index element={<h1>Hello friend</h1>} />
+      <Route index element={<IndexPage />} />
     </Route>
   )
 )
