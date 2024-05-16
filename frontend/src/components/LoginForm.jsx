@@ -14,7 +14,7 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://127.0.0.1:8000/api/login/', {
+      const response = await fetch('http://127.0.0.1:8000/api/token/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -29,8 +29,8 @@ const LoginForm = () => {
       const data = await response.json();
 
       // Store access token and refresh token in localStorage or state
-      localStorage.setItem('accessToken', data.accessToken);
-      localStorage.setItem('refreshToken', data.refreshToken);
+      localStorage.setItem('accessToken', data.access);
+      localStorage.setItem('refreshToken', data.refresh);
 
       // Redirect or perform other actions after successful login
     } catch (error) {
