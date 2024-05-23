@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useAuthStore } from "../stores/authStore";
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: ''
   });
+
+  const login = useAuthStore((state) => state.login);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -28,11 +31,10 @@ const LoginForm = () => {
 
       const data = await response.json();
 
-      // Store access token and refresh token in localStorage or state
-      localStorage.setItem('accessToken', data.access);
-      localStorage.setItem('refreshToken', data.refresh);
+      login(data.accessToken, data.refreshToken);
+      // localStorage.setItem('accessToken', data.access);
+      // localStorage.setItem('refreshToken', data.refresh);
 
-      // Redirect or perform other actions after successful login
     } catch (error) {
       console.error('Login error:', error);
     }

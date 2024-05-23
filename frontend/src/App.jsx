@@ -9,6 +9,26 @@ import IndexPage from "./components/IndexPage";
 import LoginForm from "./components/LoginForm";
 import RegistrationForm from "./components/RegistrationForm";
 
+// import useAuthStore from "./stores/authStore";
+// import isTokenExpired from "./utils/jwt";
+
+// const { accessToken, refreshAccessToken, isAuthenticated } = useAuthStore((state) => ({
+//     accessToken: state.accessToken,
+//     refreshAccessToken: state.refreshAccessToken,
+//     isAuthenticated: state.isAuthenticated,
+//   }));
+
+
+// useEffect(() => {
+//     const interval = setInterval(() => {
+//       if (isTokenExpired(accessToken)) {
+//         refreshAccessToken();
+//       }
+//     }, 4 * 60 * 1000);
+//     return () => clearInterval(interval);
+//   }, [accessToken, refreshAccessToken]);
+
+
 const router = createBrowserRouter(
   createRoutesFromChildren(
     <Route path="/">
