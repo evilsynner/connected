@@ -1,6 +1,4 @@
-import React from 'react';
-
-const RegistrationForm = () => {
+export default function RegistrationForm() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900">
       <div className="max-w-md w-full bg-gray-800 p-8 rounded-lg">
@@ -24,5 +22,3 @@ const RegistrationForm = () => {
     </div>
   );
 };
-
-export default RegistrationForm;

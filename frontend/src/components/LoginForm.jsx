@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useAuthStore } from "../stores/authStore";
 
-const LoginForm = () => {
+export default function LoginForm() {
   const [formData, setFormData] = useState({
     username: '',
     password: ''
@@ -32,9 +32,6 @@ const LoginForm = () => {
       const data = await response.json();
 
       login(data.accessToken, data.refreshToken);
-      // localStorage.setItem('accessToken', data.access);
-      // localStorage.setItem('refreshToken', data.refresh);
-
     } catch (error) {
       console.error('Login error:', error);
     }
@@ -59,5 +56,3 @@ const LoginForm = () => {
     </div>
   );
 };
-
-export default LoginForm;

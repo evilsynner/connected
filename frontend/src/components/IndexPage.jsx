@@ -1,6 +1,6 @@
 import Navbar from "./NavBar";
 
-function IndexPage () {
+function IndexPage() {
   return (
     <div>
       <Navbar />
