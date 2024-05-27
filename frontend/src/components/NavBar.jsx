@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -57,5 +57,3 @@ const Navbar = () => {
     </nav>
   );
 };
-
-export default Navbar;
