@@ -6,7 +6,7 @@ function IndexPage() {
         <Link to="/">
           <img className="aspect-square w-12" src="./CONNectedLogo.svg" alt="CONNected Logo" />
         </Link>
-        <div className="flex flex-row justify-between content-center">
+        <div className="flex flex-row content-center items-center space-x-4">
           <Link className="text-[#FBD8D8]" to="/home/">
             Go to Home
           </Link>
@@ -18,6 +18,12 @@ function IndexPage() {
           </Link>
         </div>
       </div>
+      <h1 className="text-white mt-20 text-center font-['Roboto'] font-black text-3xl">
+        The CONNected Social Network
+      </h1>
+      <p className="text-white mt-10 text-center text-[#cecece] text-lg font-['Roboto']">
+        The place where you can create and share code snippets with others.
+      </p>
     </div>
   )
 }
