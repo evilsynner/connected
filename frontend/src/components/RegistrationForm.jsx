@@ -3,12 +3,12 @@ import { Navigate } from 'react-router-dom';
 
 export default function RegistrationForm() {
   const [formData, setFormData] = useState({
-    email: '',
-    username: '',
-    password: '',
+    email: "",
+    username: "",
+    password: "",
   });
 
-  const [notification, setNotification] = useState('');
+  const [notification, setNotification] = useState("");
   const [showNotification, setShowNotification] = useState(false);
 
   const handleChange = (e) => {

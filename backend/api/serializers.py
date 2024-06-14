@@ -21,6 +21,11 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         user.save()
         return user
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ["username", "email", "password"]
+
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):

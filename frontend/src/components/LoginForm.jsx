@@ -4,8 +4,8 @@ import { Navigate } from "react-router-dom";
 
 export default function LoginForm() {
   const [formData, setFormData] = useState({
-    username: '',
-    password: ''
+    username: "",
+    password: ""
   });
 
   const login = useAuthStore((state) => state.login);
