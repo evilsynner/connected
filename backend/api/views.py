@@ -1,11 +1,15 @@
 from django.shortcuts import render
 
 from rest_framework import status
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import UserRegistrationSerializer
 from .serializers import MyTokenObtainPairSerializer
+from .serializers import UserSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
+from django.contrib.auth import get_user_model
 
 # Create your views here.
 class UserRegistrationAPIView(APIView):
@@ -18,3 +22,11 @@ class UserRegistrationAPIView(APIView):
 
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def get_user_info(request, username):
+    User = get_user_model()
+    user = User.objects.get(username=username)
+    serializer = UserSerializer(user)
+    return Response(serializer.data)

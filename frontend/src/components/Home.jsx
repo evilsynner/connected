@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import { useAuthStore } from "../stores/authStore";
 
 export default function Home() {
-  const logout = useAuthStore((state) => state.logout);
-  // const user = useAuthStore((state) => state.user);
-
+  const fetchUserInfo = useAuthStore((state) => state.fetchUserInfo);
+  const token = useAuthStore((state) => state.refreshToken);
+  const username = useAuthStore((state) => state.username);
+  const logout = useAuthStore((state) => state.logout)
+  fetchUserInfo(username, token);
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <nav className="bg-gray-800 p-4">

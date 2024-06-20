@@ -33,7 +33,7 @@ export default function LoginForm() {
 
       const data = await response.json();
 
-      login(data.accessToken, data.refreshToken);
+      login(data.access, data.refresh, formData.username);
       setLoggedIn(true);
     } catch (error) {
       console.error('Login error:', error);
