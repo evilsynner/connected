@@ -6,17 +6,13 @@ export default function Home() {
   const fetchUserInfo = useAuthStore((state) => state.fetchUserInfo);
   const token = useAuthStore((state) => state.refreshToken);
   const username = useAuthStore((state) => state.username);
-  const logout = useAuthStore((state) => state.logout)
+
   fetchUserInfo(username, token);
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <nav className="bg-gray-800 p-4">
         <div className="container mx-auto flex justify-between items-center">
           <Link to="/home" className="text-xl font-bold text-white">CONNected</Link>
-          <div>
-            <Link to="/profile" className="px-4 py-2 text-sm font-semibold text-white hover:bg-gray-700 rounded">Profile</Link>
-            <button onClick={logout} className="ml-4 px-4 py-2 text-sm font-semibold text-white bg-red-500 hover:bg-red-600 rounded">Logout</button>
-          </div>
           <HamburgerMenu />
         </div>
       </nav>

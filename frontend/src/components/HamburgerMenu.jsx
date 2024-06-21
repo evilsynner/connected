@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuthStore } from "../stores/authStore";
 export default function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const logout = useAuthStore((state) => state.logout);
 
   return (
     <div className="relative inline-block text-left bg-gray-900">
@@ -21,21 +24,47 @@ export default function HamburgerMenu() {
           className="absolute right-0 z-10 mt-2 w-48 bg-white rounded-md shadow-md py-1 text-sm text-gray-700"
         >
           <li>
-            <a
-              href="#"
+            <Link
+              to="/profile/"
               className="block py-2 px-4 hover:bg-gray-100"
-            >
-              Opción 1
-            </a>
+          >
+            My Profile
+          </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              to="#"
               className="block py-2 px-4 hover:bg-gray-100"
             >
-              Opción 2
-            </a>
+              My Pastes
+            </Link>
           </li>
+          <li>
+            <Link
+              to="#"
+              className="block py-2 px-4 hover:bg-gray-100"
+            >
+              Settings
+            </Link>
+          </li>
+          <li>
+            <hr />
+          </li>
+          <li>
+            <Link
+              to="#"
+              className="block py-2 px-4 hover:bg-gray-100"
+            >
+              Create paste
+            </Link>
+          </li>
+          <li>
+            <hr />
+          </li>
+          <li className="bg-red-500">
+            <button onClick={logout} className="block py-2 px-4">Logout</button>
+          </li>
+
         </ul>
       )}
     </div>
