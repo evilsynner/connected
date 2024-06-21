@@ -11,6 +11,9 @@ export default function LoginForm() {
   const login = useAuthStore((state) => state.login);
   const [loggedIn, setLoggedIn] = useState(false);
 
+  const [notification, setNotification] = useState("");
+  const [showNotification, setShowNotification] = useState(false);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
@@ -35,8 +38,15 @@ export default function LoginForm() {
 
       login(data.access, data.refresh, formData.username);
       setLoggedIn(true);
+
+      setNotification("Successful login. Redirecting to Home page.");
+      setShowNotification(true);
+
     } catch (error) {
       console.error('Login error:', error);
+
+      setNotification("Login failed, please truy again");
+      setShowNotification(true);
     }
   };
 
@@ -48,6 +58,16 @@ export default function LoginForm() {
         <div className="min-h-screen flex items-center justify-center bg-gray-900">
           <div className="max-w-md w-full bg-gray-800 p-8 rounded-lg">
             <h2 className="text-3xl font-bold text-white mb-8">Login</h2>
+            {showNotification && (
+              <div className={`mb-4 px-4 py-2 rounded-lg ${notification.startsWith("Successful") ? "bg-green-500" : "bg-red-500"} text-white`}>
+                {notification}
+              </div>
+            )}
+
+
+
+
+
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label htmlFor="username" className="block text-white text-sm font-semibold mb-2">Username</label>

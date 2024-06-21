@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../stores/authStore";
+import HamburgerMenu from "./HamburgerMenu";
 
 export default function Home() {
   const fetchUserInfo = useAuthStore((state) => state.fetchUserInfo);
@@ -11,11 +12,12 @@ export default function Home() {
     <div className="min-h-screen bg-gray-900 text-white">
       <nav className="bg-gray-800 p-4">
         <div className="container mx-auto flex justify-between items-center">
-          <Link to="/" className="text-xl font-bold text-white">MyApp</Link>
+          <Link to="/home" className="text-xl font-bold text-white">CONNected</Link>
           <div>
             <Link to="/profile" className="px-4 py-2 text-sm font-semibold text-white hover:bg-gray-700 rounded">Profile</Link>
             <button onClick={logout} className="ml-4 px-4 py-2 text-sm font-semibold text-white bg-red-500 hover:bg-red-600 rounded">Logout</button>
           </div>
+          <HamburgerMenu />
         </div>
       </nav>
       <main className="container mx-auto py-8 px-4">
