@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
+from .models import Paste
 
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
@@ -37,3 +38,15 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ["first_name", "last_name", "username", "email"]
+
+class PasteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Paste
+        fields = ["id", "title", "content", "publish_date", "last_updated", "author", "slug"]
+        read_only_fields = ["id", "publish_date", "last_updated", "author", "slug"]
+
+    def create(self, validated_data):
+        request = self.context.get("request")
+        user = request.user
+        paste = Paste.objects.create(author=user, **validated_data)
+        return paste

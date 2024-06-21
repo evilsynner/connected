@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from rest_framework import status
+from rest_framework import generics, status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -8,6 +8,8 @@ from rest_framework.views import APIView
 from .serializers import UserRegistrationSerializer
 from .serializers import MyTokenObtainPairSerializer
 from .serializers import UserSerializer
+from .serializers import PasteSerializer
+from .models import Paste
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django.contrib.auth import get_user_model
 
@@ -30,3 +32,8 @@ def get_user_info(request, username):
     user = User.objects.get(username=username)
     serializer = UserSerializer(user)
     return Response(serializer.data)
+
+class PasteCreateView(generics.CreateAPIView):
+    queryset = Paste.objects.all()
+    serializer_class = PasteSerializer
+    permission_classes = [IsAuthenticated]

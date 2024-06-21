@@ -12,6 +12,7 @@ import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import Home from "./components/Home.jsx";
 import ProfileDetails from "./components/ProfileDetails.jsx";
 import AutoRefreshToken from "./components/AutoRefreshToken.jsx";
+import CreatePaste from "./components/CreatePaste.jsx";
 import { useAuthStore } from "./stores/authStore.js";
 
 
@@ -36,7 +37,9 @@ const router = createBrowserRouter(
           <ProtectedRoute><h1>My Pastes page</h1></ProtectedRoute>
         } />
         <Route path="create/" element={
-          <ProtectedRoute><h1>Pastes Creation page</h1></ProtectedRoute>
+          <ProtectedRoute>
+            <CreatePaste />
+          </ProtectedRoute>
         } />
       </Route>
     </Route>
