@@ -10,6 +10,10 @@ import LoginForm from "./components/LoginForm.jsx";
 import RegistrationForm from "./components/RegistrationForm.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import Home from "./components/Home.jsx";
+import ProfileDetails from "./components/ProfileDetails.jsx";
+import AutoRefreshToken from "./components/AutoRefreshToken.jsx";
+import { useAuthStore } from "./stores/authStore.js";
+
 
 const router = createBrowserRouter(
   createRoutesFromChildren(
@@ -23,12 +27,22 @@ const router = createBrowserRouter(
         element={
           <ProtectedRoute><Home /></ProtectedRoute>
         } />
+      <Route path="profile/"
+        element={
+          <ProtectedRoute><ProfileDetails /></ProtectedRoute>
+        } />
     </Route>
   )
 )
+
 function App() {
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+
   return (
-    <RouterProvider router={router} />
+    <>
+      {isAuthenticated && <AutoRefreshToken />}
+      <RouterProvider router={router} />
+    </>
   );
 };
 

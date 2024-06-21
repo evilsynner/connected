@@ -25,5 +25,27 @@ export const useAuthStore = create((set) => ({
     } else {
       console.log("Failed to fetch user data");
     }
+  },
+
+  refreshAccessToken: async () => {
+    const state = useAuthStore.getState();
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/token/refresh/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ refresh: state.refreshToken })
+      });
+      if (!response.ok) {
+        throw new Error("Failed to refresh token");
+      }
+
+      const data = await response.json();
+      set({ accessToken: data.access });
+    } catch (error) {
+      console.log("Error refreshing token");
+      state.logout();
+    }
   }
 }))
