@@ -31,6 +31,14 @@ const router = createBrowserRouter(
         element={
           <ProtectedRoute><ProfileDetails /></ProtectedRoute>
         } />
+      <Route path="pastes/">
+        <Route path="my-pastes/" element={
+          <ProtectedRoute><h1>My Pastes page</h1></ProtectedRoute>
+        } />
+        <Route path="create/" element={
+          <ProtectedRoute><h1>Pastes Creation page</h1></ProtectedRoute>
+        } />
+      </Route>
     </Route>
   )
 )

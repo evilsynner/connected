@@ -33,7 +33,7 @@ export default function HamburgerMenu() {
           </li>
           <li>
             <Link
-              to="#"
+              to="/pastes/my-pastes/"
               className="block py-2 px-4 hover:bg-gray-100"
             >
               My Pastes
@@ -52,7 +52,7 @@ export default function HamburgerMenu() {
           </li>
           <li>
             <Link
-              to="#"
+              to="/pastes/create/"
               className="block py-2 px-4 hover:bg-gray-100"
             >
               Create paste
