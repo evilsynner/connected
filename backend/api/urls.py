@@ -3,7 +3,8 @@ from .views import (
     UserRegistrationAPIView,
     MyTokenObtainPairView,
     get_user_info,
-    PasteCreateView
+    PasteCreateView,
+    PasteListView,
 )
 from rest_framework_simplejwt.views import TokenRefreshView
 
@@ -13,4 +14,5 @@ urlpatterns = [
     path("register/", UserRegistrationAPIView.as_view()),
     path("user-info/<str:username>/", get_user_info),
     path("pastes/create/", PasteCreateView.as_view()),
+    path("pastes/all/", PasteListView.as_view()),
 ]

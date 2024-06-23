@@ -37,3 +37,8 @@ class PasteCreateView(generics.CreateAPIView):
     queryset = Paste.objects.all()
     serializer_class = PasteSerializer
     permission_classes = [IsAuthenticated]
+
+class PasteListView(generics.ListAPIView):
+    queryset = Paste.objects.all()
+    serializer_class = PasteSerializer
+    permission_classes = [IsAuthenticated]

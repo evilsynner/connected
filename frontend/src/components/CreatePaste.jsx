@@ -44,8 +44,8 @@ export default function CreatePaste() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
-      <div className="max-w-md w-full bg-gray-800 p-8 rounded-lg">
-        <h2 className="text-3xl font-bold mb-8">Create Paste</h2>
+      <div className="max-w-2xl w-full bg-gray-800 p-4 rounded-lg">
+        <h2 className="text-3xl font-bold mb-4">Create Paste</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="title" className="block text-sm font-semibold mb-2">Title</label>
