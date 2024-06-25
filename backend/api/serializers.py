@@ -42,8 +42,15 @@ class UserSerializer(serializers.ModelSerializer):
 class PasteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Paste
-        fields = ["id", "title", "content", "publish_date", "last_updated", "author", "slug"]
-        read_only_fields = ["id", "publish_date", "last_updated", "author", "slug"]
+        fields = [
+            "title", "content",
+            "publish_date", "last_updated",
+            "author", "slug", "uuid"
+        ]
+        read_only_fields = [
+            "publish_date", "last_updated",
+            "author", "slug", "uuid"
+        ]
 
     def create(self, validated_data):
         request = self.context.get("request")

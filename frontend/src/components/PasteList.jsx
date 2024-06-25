@@ -40,7 +40,7 @@ export default function PasteList() {
             <li key={paste.id} className="mb-4 p-4 bg-gray-800 rounded-lg">
               <h3 className="text-xl font-semibold">{paste.title}</h3>
               <p>{paste.content.substring(0, 100)}...</p>
-              <p className="text-sm text-gray-400">By {paste.author}</p>
+              {/* <p className="text-sm text-gray-400">By {paste.author}</p> */}
             </li>
           ))}
         </ul>

@@ -19,14 +19,6 @@ export default function Home() {
       </nav>
       <div className="container mx-auto my-11 px-4">
         <PasteList />
-      {/*
-        <h1 className="text-3xl font-bold mb-4">Welcome, user!</h1>
-        <p className="text-lg">This is your home page. Here you can find all your important information and manage your account.</p>
-        <div className="mt-8">
-          <h2 className="text-2xl font-semibold mb-4">Your Content</h2>
-          <p className="text-gray-400">This section will be populated with your content and interactions.</p>
-        </div>
-      */}
       </div>
     </main>
   );
